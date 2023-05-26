@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Увеличение и уменьшение числа</title>
+  <style>
+    .container {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+
+    input {
+      padding: 5px;
+      font-size: 16px;
+      width: 60px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button id="decrease">-</button>
+    <input type="number" id="numberInput" min="0" max="100" value="50">
+    <button id="increase">+</button>
+  </div>
+
+  <script>
+    const numberInput = document.getElementById('numberInput');
+    const decreaseButton = document.getElementById('decrease');
+    const increaseButton = document.getElementById('increase');
+
+    decreaseButton.addEventListener('click', decreaseValue);
+    increaseButton.addEventListener('click', increaseValue);
+    decreaseButton.addEventListener('dblclick', decreaseValueBy5);
+    increaseButton.addEventListener('dblclick', increaseValueBy5);
+
+    function decreaseValue() {
+      let currentValue = parseInt(numberInput.value);
+      if (currentValue >= 10) {
+        numberInput.value = currentValue - 10;
+      }
+    }
+
+    function increaseValue() {
+      let currentValue = parseInt(numberInput.value);
+      if (currentValue <= 90) {
+        numberInput.value = currentValue + 10;
+      }
+    }
+
+    function decreaseValueBy5() {
+      let currentValue = parseInt(numberInput.value);
+      if (currentValue >= 5) {
+        numberInput.value = currentValue - 5;
+      }
+    }
+
+    function increaseValueBy5() {
+      let currentValue = parseInt(numberInput.value);
+      if (currentValue <= 95) {
+        numberInput.value = currentValue + 5;
+      }
+    }
+  </script>
+</body>
+</html>

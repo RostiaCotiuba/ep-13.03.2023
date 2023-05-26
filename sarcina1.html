@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cotiuba Rostislav</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      width: 300px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Задание номер 1: Преобразование предложения</h1>
+  <label for="sentence">Введите предложение:</label>
+  <input type="text" id="sentence">
+  <button onclick="processSentence()">Преобразовать</button>
+  <div id="result"></div>
+
+  <script>
+    function uppercaseLastLetter(sentence) {
+      var words = sentence.split(" ");
+      var transformedWords = words.map(function(word) {
+        var lastLetter = word.slice(-1).toUpperCase();
+        return word.slice(0, -1) + lastLetter;
+      });
+      var transformedSentence = transformedWords.join(" ");
+      return transformedSentence;
+    }
+
+    function processSentence() {
+      var sentenceInput = document.getElementById("sentence");
+      var resultDiv = document.getElementById("result");
+      var sentence = sentenceInput.value;
+      var result = uppercaseLastLetter(sentence);
+      resultDiv.textContent = result;
+    }
+  </script>
+</body>
+</html>
